@@ -1,0 +1,143 @@
+/*********************************************
+* Messages style
+*********************************************/
+
+:root {
+    --red: rgb(220, 40, 40);
+    --orange: rgb(240, 135, 35);
+    --blue: rgb(35, 90, 220);
+    --white: rgb(250, 250, 250);
+}
+
+.msDiv {
+    position: fixed;
+    top: 0px;
+    padding: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: var(--white);
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    column-gap: 5px;
+    align-content: center;
+}
+
+.msInfo {
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    text-align: center;
+}
+
+.msInfo:after {
+    content: '\1F6C8';
+    color: var(--white);
+    background-color: var(--blue);
+    margin: -5px -6px -5px 0px;
+}
+
+.msInfo:before {
+    content: '\1F6C8';
+    color: var(--white);
+    background-color: var(--blue);
+    margin: -5px 0px -5px -6px;
+}
+
+.msWarning {
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    text-align: center;
+}
+
+.msWarning:after {
+    content: '\26A0';
+    color: var(--white);
+    background-color: var(--orange);
+    margin: -5px -6px -5px 0px;
+}
+
+.msWarning:before {
+    content: '\26A0';
+    color: var(--white);
+    background-color: var(--orange);
+    margin: -5px 0px -6px -5px;
+}
+
+.msAlert {
+    border: 2px solid var(--red);
+    color: var(--red);
+    text-align: center;
+}
+
+.msAlert:after {
+    content: '\2623';
+    color: var(--white);
+    background-color: var(--red);
+    margin: -5px -6px -5px 0px;
+}
+
+.msAlert:before {
+    content: '\2623';
+    color: var(--white);
+    background-color: var(--red);
+    margin: -5px 0px -6px -5px;
+}
+
+.msOpening {
+    transition: all 0.1s ease !important;
+    transform: translate(-50%, 15px);
+}
+
+.msClosing {
+    transition: all 0.1s ease !important;
+    transform: translate(-50%, -100%);
+}
+
+
+/*********************************************
+* Waiting style                       
+*********************************************/
+
+.waiting {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.waiting>div {
+    content: '';
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50vw;
+    height: 50vw;
+    display: flex;
+}
+
+.waiting>div:before {
+    content: '';
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.3);
+    width: calc(50vw - 34px);
+    height: calc(50vw - 34px);
+    left: 10px;
+    top: 10px;
+    position: relative;
+    animation: spin 1s cubic-bezier(0.38, 0.14, 0.57, 0.82) infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

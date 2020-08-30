@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon-512.png" type="image/png">
+    <script src="https://kit.fontawesome.com/342454a366.js" crossorigin="anonymous"></script>
+    <script src="ressource/utilitary.js" defer></script>
+    <link rel="stylesheet" href="ressource/utilitary.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <script src="customElements.js" type="module" defer></script>
+    <title>Calculateur d'impôts sur le revenu</title>
+</head>
+<body>
+    <nav>
+        <img src="icon-512.png" height="70px">
+        <h1>Calculateur d'impôts sur le revenu</h1>
+    </nav>
+    <div class="view">
+        <view-section title="Calcul des parts">
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                <input type="number" min="0" step="1" placeholder="Enfants à charge" id="enfants" title="Enfants à charge"><label for="enfants">Enfants à charge</label>
+                <input type="number" min="0" step="1" placeholder="Enfants bénéficiaires de la CMI" title="Enfants bénéficiaires de la CMI" id="cmi"><label for="cmi">Enfants bénéficiaires de la CMI</label>
+            </div>
+            <div>
+                <input type="checkbox" name="conjoint" id="conjoint" title="Marié ou pacsé"><label for="conjoint">Marié ou pacsé</label>
+            </div>
+            <div>
+                <p>Si vous avez des enfants à charge, vous pouvez bénéficier de 0.5 parts supplémentaires par enfants jusqu'à 2 enfants et 1 part supplémentaire par enfants au-dela.</p>
+                <p>Les enfants titulaires de la CMI mention invalidité ouvrent droit à une demi-part supplémentaire de quotient familial.</p>
+                <p>Si vous êtes marié ou pacsé, vous avez droit à 1 part supplémentaire de quotient familial.</p>
+                <p><a href="https://www.economie.gouv.fr/particuliers/quotient-familial" target="_blank">Détail du calcul des parts de quotient familial</a></p>
+            </div>
+        </view-section>
+        <view-section title="Calcul du taux d'imposition" id="impot-section">
+            <div>
+                <input type="number" min="0" step="0.01" placeholder="Salaire net annuel" title="Salaire net annuel" id="salaire"><label for="salaire">Salaire net annuel</label>
+                <button class="btn-primary" id="submit" title="Calculer"><i class="fas fa-exchange-alt"></i></button>
+                <input type="number" min="0" step="0.01" placeholder="Impôt annuel" title="Impôt annuel" id="impot"><label for="impot">Impôt annuel</label>
+                <select id="annee" title="Formule de taux"></select>
+            </div>
+            <div>
+                <p>Remplissez un champ afin d'obtenir le résultat de l'autre.</p>
+                <p><a href="https://www.economie.gouv.fr/particuliers/tranches-imposition-impot-revenu" target="_blank">Détail du calcul de l'impot sur le revenu</a></p>
+            </div>
+            <graph-2d id="graph" axe-y="" axe-x="" label-y="" label-x="" value="" title="Graph"></graph-2d>
+            <!-- <graph-2d y1="10064, 27794, 74517, 157806" y2="0%, 11%, 30%, 41%, 45%" value="32000"></graph-2d> -->
+        </view-section>
+    </section>
+</body>
+</html>
